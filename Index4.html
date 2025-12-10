@@ -1,0 +1,2896 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>المشاوي الذهبية</title>
+  <meta name="description" content="تقدم أشهى أطباق المشاوي من أجود أنواع اللحوم">
+  <meta name="theme-color" content="#b22222">
+  <style>
+    /* نظام الثيمات */
+    :root {
+      --text-strong: #000000;
+      --bg: #f7f7f7;
+      --bg-soft: #ffffff;
+      --card: #ffffff;
+      --primary: #b22222;
+      --primary-soft: rgba(178, 34, 34, 0.1);
+      --accent: #ff7043;
+      --text: #222;
+      --muted: #666;
+      --border: rgba(0, 0, 0, 0.1);
+      --radius-lg: 18px;
+      --shadow-soft: 0 4px 12px rgba(0,0,0,0.15);
+      --button-text: #ffffff;
+    }
+
+    body.theme-1 {
+      --text-strong: #ffffff;
+      --bg: #020617;
+      --bg-soft: #020617;
+      --card: #020617;
+      --primary: #facc15;
+      --primary-soft: rgba(250, 204, 21, 0.15);
+      --accent: #f97316;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: rgba(250, 204, 21, 0.45);
+      --shadow-soft: 0 4px 12px rgba(0,0,0,0.3);
+      --button-text: #0f172a;
+    }
+
+    body.theme-2 {
+      --text-strong: #ffffff;
+      --bg: #111827;
+      --bg-soft: #030712;
+      --card: #020617;
+      --primary: #ef4444;
+      --primary-soft: rgba(248, 113, 113, 0.16);
+      --accent: #f97316;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: rgba(248, 113, 113, 0.4);
+      --shadow-soft: 0 4px 12px rgba(0,0,0,0.3);
+      --button-text: #ffffff;
+    }
+
+    body.theme-3 {
+      --bg: #ecfdf5;
+      --bg-soft: #f0fdf4;
+      --card: #ffffff;
+      --primary: #16a34a;
+      --primary-soft: rgba(22, 163, 74, 0.08);
+      --accent: #22c55e;
+      --text: #022c22;
+      --muted: #6b7280;
+      --border: rgba(148, 163, 184, 0.5);
+      --shadow-soft: 0 4px 12px rgba(148,163,184,0.2);
+      --button-text: #ffffff;
+    }
+
+    body.theme-4 {
+      --bg: #020617;
+      --bg-soft: #0b1120;
+      --card: #020617;
+      --primary: #fb923c;
+      --primary-soft: rgba(251, 146, 60, 0.16);
+      --accent: #38bdf8;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: rgba(56, 189, 248, 0.45);
+      --shadow-soft: 0 4px 12px rgba(0,0,0,0.3);
+      --button-text: #0f172a;
+    }
+
+    body.theme-5 {
+      --bg: #f5f5f4;
+      --bg-soft: #fafaf9;
+      --card: #fffbeb;
+      --primary: #b45309;
+      --primary-soft: rgba(180, 83, 9, 0.12);
+      --accent: #d97706;
+      --text: #1f2933;
+      --muted: #6b7280;
+      --border: rgba(158, 123, 76, 0.6);
+      --shadow-soft: 0 4px 12px rgba(148,163,184,0.2);
+      --button-text: #ffffff;
+    }
+
+    /* باقي الأنماط مع تعديلها لاستخدام المتغيرات */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    body {
+
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 110px;
+    }
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      padding: 14px 18px;
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 0;
+      z-index: 40;
+    }
+    header .title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .header-left {
+      display: flex;
+      align-items: center;
+    }
+    .header-right {
+      flex: 1;
+      text-align: right;
+    }
+    header h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+    }
+    header p {
+      font-size: 0.85rem;
+      opacity: 0.9;
+      margin-top: 3px;
+    }
+    .badge {
+      background: rgba(255,255,255,0.15);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      border: 1px solid rgba(255,255,255,0.4);
+      white-space: nowrap;
+      margin-top: 5px;
+      display: inline-block;
+    }
+    .logo-circle {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.8);
+      background: rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem; font-weight:700; color:#0f172a;
+      font-weight: 800;
+      color: #fff;
+      margin-right: 10px;
+    }
+
+    main {
+      flex: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      padding: 10px 12px 22px;
+    }
+
+    /* Category hero */
+    .category-hero {
+      position: relative;
+      height: 180px;
+      border-radius: 18px;
+      overflow: hidden;
+      margin-bottom: 10px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      box-shadow: var(--shadow-soft);
+    }
+    .category-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.2));
+    }
+    .category-hero-content {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 12px 14px;
+      color: #fff;
+    }
+    .hero-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+    .hero-subtitle {
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    /* Tabs bar */
+    .categories-bar-wrapper {
+      background: var(--card);
+      border-radius: 999px;
+      padding: 6px 8px;
+      box-shadow: var(--shadow-soft);
+      margin: 10px 0;
+      position: sticky;
+      top: 78px;
+      z-index: 30;
+    }
+    .categories-bar {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .categories-bar::-webkit-scrollbar {
+      display: none;
+    }
+    .category-tab {
+      border: none;
+      background: transparent;
+      padding: 6px 14px;
+      font-size: 0.9rem;
+      border-radius: 999px;
+      cursor: pointer;
+      white-space: nowrap;
+      color: var(--muted);
+      transition: all 0.15s ease;
+    }
+    .category-tab:hover {
+      background: var(--primary-soft);
+    }
+    .category-tab.active {
+      background: var(--primary);
+      color: var(--button-text);
+      font-weight: 600;
+    }
+
+    .section-header {
+      margin: 8px 2px 6px;
+    }
+    .section-title {
+      font-size: 1.1rem; font-weight:700; color:#0f172a;
+      font-weight: 600;
+    }
+    .section-subtitle {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* Items list */
+    .items-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .item-card {
+      background: var(--card);
+      border-radius: 16px;
+      padding: 10px;
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 12px;
+      align-items: center;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border);
+    }
+    .item-image-wrap {
+      flex: 0 0 100px;
+      height: 100px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--primary-soft);
+    }
+    .item-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .item-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .item-main-text {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .item-name {
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+    .item-desc {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .item-bottom-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+    .item-price {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+    /* تثبيت لون أسود للنص بجانب صورة الوجبة وللسعر في جميع الثيمات */
+    .item-name,
+    .item-desc,
+    .item-price {
+      color: #000000 !important;
+    }
+
+    .btn {
+      border: none;
+      border-radius: 10px;
+      padding: 7px 14px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      font-weight: 600;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: var(--button-text);
+      min-width: 120px;
+    }
+    .btn-primary:hover {
+      transform: translateY(-1px);
+    }
+
+    /* Toast notification */
+    .toast {
+      position: fixed;
+      bottom: 80px;
+      right: 16px;
+      background: #4caf50;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 1000;
+      animation: slideIn 0.3s ease;
+      max-width: 300px;
+      font-size: 0.85rem;
+    }
+    @keyframes slideIn {
+      from { transform: translateX(100%); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+
+    /* Floating cart button */
+    .cart-fab {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 60;
+      padding: 8px 16px calc(12px + env(safe-area-inset-bottom));
+      background: rgba(15, 23, 42, 0.95);
+      display: flex;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .cart-fab button {
+      pointer-events: auto;
+      width: 100%;
+      max-width: 420px;
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-size: 0.9rem;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      background: #ffffff;
+      color: #000000 !important;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+    }
+    .cart-fab-badge {
+      background: var(--primary);
+      color: var(--button-text);
+      min-width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    /* Cart overlay */
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      display: none;
+      align-items: flex-end;
+      justify-content: center;
+      z-index: 80;
+    }
+    .cart-overlay.active {
+      display: flex;
+    }
+    .cart-panel {
+      background: var(--card);
+      width: 100%;
+      max-width: 500px;
+      max-height: 90vh;
+      border-top-left-radius: 18px;
+      border-top-right-radius: 18px;
+      box-shadow: 0 -6px 20px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      padding: 12px 14px 14px;
+    }
+    .cart-panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .cart-panel-header h2 {
+      font-size: 1.1rem; font-weight:700; color:#0f172a;
+      color: var(--text);
+    }
+    .cart-close-btn {
+      background: transparent;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 2px 4px;
+      color: var(--text);
+    }
+    .cart-items {
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 4px;
+      margin: 4px 0 8px;
+    }
+    .cart-empty {
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+      padding: 16px 6px;
+    }
+    .cart-item {
+      border-bottom: 1px dashed var(--border);
+      padding: 8px 2px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4px 8px;
+      align-items: start;
+    }
+    .cart-item:last-child {
+      border-bottom: none;
+    }
+    .cart-item-main {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .cart-item-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text);
+    }
+    .cart-item-meta {
+      font-size: 0.75rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .chip {
+      background: var(--primary-soft);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-size: 0.72rem;
+    }
+    .cart-item-qty-price {
+      text-align: left;
+      font-size: 0.8rem;
+      white-space: nowrap;
+      color: var(--text);
+    }
+    .cart-item-actions {
+      grid-column: 1 / -1;
+      display: flex;
+      gap: 6px;
+      margin-top: 4px;
+    }
+    .btn-icon {
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: none;
+      background: var(--primary-soft);
+      cursor: pointer;
+      font-size: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--text);
+    }
+    .btn-icon.danger {
+      background: rgba(239, 68, 68, 0.15);
+      color: #ef4444;
+    }
+
+    .cart-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.86rem;
+    }
+    .cart-footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--text);
+    }
+    .cart-footer-row.total {
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+    .cart-actions {
+      margin-top: 8px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    /* Modal */
+    
+    /* شاشة إتمام الطلب Checkout بكامل الشاشة */
+    .checkout-screen {
+      position: fixed;
+      inset: 0;
+      background: rgba(15,23,42,0.9); /* أوفرلاي داكن يغطي صفحة المطعم بالكامل */
+      z-index: 999;
+      display: none;
+      overflow-y: auto;
+    }
+    .checkout-screen.active {
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+    }
+    .checkout-container {
+      background: #f7f7f7;   /* صفحة فاتحة وواضحة فوق الأوفرلاي */
+      color: #111827;
+      width: 100%;
+      max-width: 640px;
+      margin: 24px auto;
+      display: flex;
+      flex-direction: column;
+      padding: 12px 14px 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      border-radius: 16px;
+    }
+.checkout-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+    .checkout-title-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .checkout-title {
+      font-size: 1.25rem;
+      margin: 0;
+      font-weight: 700;
+    }
+    .checkout-subtitle {
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin: 0;
+    }
+    .checkout-steps-dots {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .step-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.25);
+    }
+    .step-dot.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: scale(1.1);
+    }
+    .checkout-back-btn {
+      background: transparent;
+      border: none;
+      color: var(--muted-text);
+      font-size: 1.1rem; font-weight:700; color:#0f172a;
+      cursor: pointer;
+      padding: 4px 6px;
+      min-width: 40px;
+    }
+    .checkout-main {
+      overflow-y: auto;
+      padding: 6px 2px 10px;
+      display: block;
+    }
+    .checkout-step {
+      display: none;
+      animation: fadeInStep 0.18s ease-out;
+    }
+    .checkout-step.active {
+      display: block;
+    }
+    @keyframes fadeInStep {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    .form-label {
+      font-size: 1.1rem; font-weight:700; color:#0f172a;
+      color: #111827;
+      font-weight: 600;
+    }
+    .form-control {
+      background: #ffffff;
+      border: 1px solid #d1d5db;
+      border-radius: 12px;
+      padding: 12px 14px;
+      color: #111827;
+      font-size: 1.1rem; font-weight:700; color:#0f172a;
+    }
+    .form-control::placeholder {
+      color: #9ca3af;
+      opacity: 1;
+    }
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 1.1rem; font-weight:700; color:#0f172a;
+    }
+    .radio-group label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .radio-group input[type="radio"] {
+      accent-color: #f97316;
+    }
+    .hint {
+      font-size: 0.78rem;
+      color: var(--muted-text);
+      margin-top: 2px;
+    }
+    .delivery-map {
+      width: 100%;
+      height: 220px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #111;
+    }
+    .btn.small {
+      padding: 4px 8px;
+      font-size: 0.8rem;
+      margin-top: 6px;
+      align-self: flex-start;
+    }
+    .checkout-footer {
+      margin-top: 8px;
+      padding-top: 10px;
+      border-top: 1px solid #e5e7eb;
+      display: flex;
+      justify-content: flex-end;
+    }
+    .checkout-footer .btn {
+      min-width: 190px;
+      padding: 11px 20px;
+      font-size: 1.1rem; font-weight:700; color:#0f172a;
+      border-radius: 999px;
+    }
+.overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 90;
+      padding: 16px;
+    }
+    .overlay.active {
+      display: flex;
+    }
+    .modal {
+      background: var(--card);
+      border-radius: 18px;
+      max-width: 460px;
+      width: 100%;
+      padding: 16px 16px 14px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .modal-header h3 {
+      font-size: 1.1rem; font-weight:700; color:#0f172a;
+      color: var(--text);
+    }
+    .modal-header button {
+      border: none;
+      background: transparent;
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 2px 4px;
+      color: var(--text);
+    }
+    .modal-body {
+      flex: 1;
+      overflow-y: auto;
+      padding-right: 4px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin: 6px 0 8px;
+      padding-top: 6px;
+      padding-bottom: 8px;
+    }
+    .field-group {
+      margin-bottom: 12px;
+    }
+    .field-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+    .options-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 0.8rem;
+    }
+    .options-row label {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--primary-soft);
+      padding: 6px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      color: var(--text);
+    }
+    .options-row input {
+      width: 14px;
+      height: 14px;
+    }
+    .checkbox-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 0.8rem;
+    }
+    .checkbox-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--primary-soft);
+      padding: 6px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      color: var(--text);
+    }
+    .checkbox-pill input {
+      width: 14px;
+      height: 14px;
+    }
+    .drink-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+      gap: 8px;
+    }
+    .drink-card {
+      border-radius: 10px;
+      background: var(--primary-soft);
+      padding: 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      cursor: pointer;
+      font-size: 0.78rem;
+      position: relative;
+      min-height: 100px;
+      color: var(--text);
+    }
+    .drink-card img {
+      width: 100%;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 6px;
+      display: block;
+    }
+    .drink-card input {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      width: 16px;
+      height: 16px;
+    }
+    .quantity-row {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--primary-soft);
+      border-radius: 999px;
+      padding: 4px 10px;
+      color: var(--text);
+    }
+    .quantity-row button {
+      border: none;
+      background: var(--card);
+      border-radius: 999px;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-weight: bold;
+      color: var(--text);
+    }
+    .quantity-row span {
+      min-width: 24px;
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .modal-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      color: var(--text);
+    }
+    .modal-footer .btn-primary {
+      flex: 1;
+    }
+
+    /* تكبير أزرار شاشة إتمام الطلب فقط */
+    .checkout-container .btn {
+      font-size: 1.1rem; font-weight:700; color:#0f172a;
+      padding: 10px 18px;
+      border-radius: 12px;
+    }
+
+    /* Theme Switcher */
+/* ===== Compact theme picker button + dropdown ===== */
+.theme-picker-container {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.theme-toggle-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.7);
+  background: rgba(0,0,0,0.18);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  color: #ffffff;
+  transition: 0.15s ease;
+}
+
+.theme-toggle-btn:hover {
+  transform: translateY(-1px) scale(1.03);
+  background: rgba(0,0,0,0.28);
+}
+
+.theme-toggle-btn.active {
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.9);
+}
+
+/* dropdown panel for theme dots */
+.theme-panel {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  background: rgba(15,23,42,0.96);
+  border-radius: 14px;
+  padding: 8px 10px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.45);
+  display: none;
+  align-items: center;
+  gap: 8px;
+  z-index: 50;
+}
+
+.theme-panel.open {
+  display: inline-flex;
+}
+
+/* Bigger dots inside the dropdown panel */
+.theme-panel .theme-dot {
+  width: 22px;
+  height: 22px;
+}
+
+/* Hide text label to save space */
+.theme-label {
+  display: none;
+}
+
+    .theme-switcher {
+      display: flex;
+      gap: 0.25rem;
+      align-items: center;
+      flex-wrap: nowrap;
+      margin-top: 5px;
+      justify-content: flex-end;
+    }
+    .theme-dot {
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.7);
+      cursor: pointer;
+      outline: 1px solid transparent;
+      transition: 0.15s;
+      flex-shrink: 0;
+    }
+    .theme-dot[data-theme="0"] { background: radial-gradient(circle at 20% 20%, #ffffff, #b22222, #450a0a); }
+    .theme-dot[data-theme="1"] { background: radial-gradient(circle at 20% 20%, #fefce8, #facc15, #450a0a); }
+    .theme-dot[data-theme="2"] { background: radial-gradient(circle at 20% 20%, #fee2e2, #ef4444, #111827); }
+    .theme-dot[data-theme="3"] { background: radial-gradient(circle at 20% 20%, #dcfce7, #22c55e, #14532d); }
+    .theme-dot[data-theme="4"] { background: radial-gradient(circle at 20% 20%, #0f172a, #fb923c, #38bdf8); }
+    .theme-dot[data-theme="5"] { background: radial-gradient(circle at 20% 20%, #fffbeb, #d97706, #3f2a1c); }
+
+    .theme-dot:hover {
+      transform: translateY(-1px) scale(1.05);
+    }
+    .theme-dot.active {
+      outline-color: rgba(248,250,252,0.85);
+      box-shadow: 0 0 0 2px rgba(255,255,255,0.9);
+    }
+    
+    /* Header layout adjustments */
+    .header-theme-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 5px;
+    }
+    .theme-label {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.8);
+      margin-left: 5px;
+    }
+  
+    /* ===== Overrides: make cart & customization backgrounds always soft white ===== */
+    .cart-panel {
+      background: #f7f7f7 !important;
+      color: #111111 !important;
+    }
+    .cart-panel-header h2,
+    .cart-line-title,
+    .cart-summary-row,
+    .cart-summary-row span {
+      color: #111111 !important;
+    }
+    .modal {
+      background: #f7f7f7 !important;
+      color: #111111 !important;
+    }
+    .modal h2,
+    .modal h3,
+    .modal p,
+    .modal label,
+    .modal span {
+      color: #111111 !important;
+    }
+
+  
+    /* زر إغلاق السلة والتخصيص دايمًا أسود وواضح في كل الثيمات */
+    .cart-close-btn,
+    #close-modal-btn {
+      color: #000000 !important;
+      opacity: 1 !important;
+      font-weight: 900 !important;
+    }
+
+
+    /* دائماً لون الخط في السلع (البطاقات) باللون الأسود في جميع الثيمات */
+    .item-card,
+    .item-name,
+    .item-desc,
+    .item-price {
+      color: #000000 !important;
+    }
+
+    /* دائماً لون الخط في نافذة التخصيص باللون الأسود في جميع الثيمات */
+    .modal,
+    .modal h2,
+    .modal h3,
+    .modal p,
+    .modal label,
+    .modal span,
+    .options-row label,
+    .checkbox-pill,
+    .drink-card,
+    .drink-card div,
+    .quantity-row,
+    .quantity-row button,
+    #qty-value,
+    .modal-footer,
+    .modal-footer div,
+    .modal-footer span {
+      color: #000000 !important;
+    }
+  
+/* === GLOBAL TEXT FIX OVERRIDES (reapplied) === */
+.item-card { color:#000 !important; }
+/* نخلي عناصر السلة والتخصيص بالأسود كما هي */
+.modal, .modal * { color:#000 !important; }
+.cart-panel, .cart-panel * { color:#000 !important; }
+.btn-primary { color:#000 !important; font-weight:700 !important; }
+.cart-close-btn, #close-modal-btn { color:#000 !important; }
+
+/* === FIX: quantity +/- buttons always light with black icon in all themes === */
+.quantity-row button {
+  background: #ffffff !important;
+  color: #000000 !important;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.08);
+}
+
+/* ===== UI Tweaks: theme button border & cart button styles & total ===== */
+.theme-toggle-btn {
+  border-width: 2px !important;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.9) !important;
+}
+
+.cart-fab button {
+      pointer-events: auto;
+      width: 100%;
+      max-width: 420px;
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-size: 0.9rem;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      background: #ffffff;
+      color: #000000 !important;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.35);
+    }
+
+.cart-fab-total {
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+    .cart-fab-badge {
+      min-width: 26px;
+      height: 24px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: #0f172a;
+      color: #f9fafb;
+    }
+    .cart-fab-total {
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .cart-fab button {
+      column-gap: 10px;
+    }
+    .cart-fab-title {
+      white-space: nowrap;
+    }
+    .cart-fab-count-group,
+    .cart-fab-total-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      white-space: nowrap;
+    }
+    .cart-count-label,
+    .cart-total-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      opacity: 0.8;
+    }
+
+    .item-title,
+    .item-desc,
+    .item-price {
+      color: var(--text-strong) !important;
+    }
+
+    /* ثيم 5: جعل كل النص داخل بطاقات السلع باللون الأسود دائماً */
+    body.theme-5 .item-card,
+    body.theme-5 .item-card * {
+      color: #000000 !important;
+    }
+
+    /* ثيم 5: جعل كل النص في الصفحة باللون الأسود لضمان وضوح الكتابة */
+    body.theme-5,
+    body.theme-5 * {
+      color: #000000 !important;
+    }
+
+    /* ضبط ألوان النص بجانب صورة الوجبة لكل الثيمات بشكل صريح */
+    body.theme-0 .item-name,
+    
+
+
+/* خريطة ألوان ثابتة لكل ثيم لعناوين/وصف/سعر الطلب داخل الكروت فقط */
+body.theme-0 .item-card .item-name,
+body.theme-0 .item-card .item-desc,
+body.theme-0 .item-card .item-price {
+  color: #222222 !important;
+}
+
+body.theme-1 .item-card .item-name,
+body.theme-1 .item-card .item-desc,
+body.theme-1 .item-card .item-price {
+  color: #ffffff !important;
+}
+
+body.theme-2 .item-card .item-name,
+body.theme-2 .item-card .item-desc,
+body.theme-2 .item-card .item-price {
+  color: #ffffff !important;
+}
+
+/* الثيم الأخضر الفاتح */
+body.theme-3 .item-card .item-name,
+body.theme-3 .item-card .item-desc,
+body.theme-3 .item-card .item-price {
+  color: #022c22 !important;
+}
+
+/* ثيم الجريدينت الداكن */
+body.theme-4 .item-card .item-name,
+body.theme-4 .item-card .item-desc,
+body.theme-4 .item-card .item-price {
+  color: #ffffff !important;
+}
+
+/* الثيم البيج الفاتح */
+body.theme-5 .item-card .item-name,
+body.theme-5 .item-card .item-desc,
+body.theme-5 .item-card .item-price {
+  color: #1f2933 !important;
+}
+
+
+
+    /* إصلاح لون عدّاد السلة في الثيم البني (theme-5):
+       نجعل الخلفية بنية والنص أبيض لظهور العدد بوضوح */
+    body.theme-5 .cart-fab-badge {
+      background: #b45309 !important;
+      color: #ffffff !important;
+    }
+
+
+    /* نافذة تأكيد إرسال الطلب */
+    .send-confirm-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.74);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+    .send-confirm-overlay.active {
+      display: flex;
+    }
+    .send-confirm-dialog {
+      background: #f9fafb;
+      border-radius: 18px;
+      padding: 16px 18px 14px;
+      width: 90%;
+      max-width: 360px;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.5);
+      text-align: center;
+    }
+    .send-confirm-title {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #111827;
+      margin-bottom: 12px;
+    }
+    .send-confirm-text {
+      font-size: 0.88rem;
+      color: #4b5563;
+      margin-bottom: 14px;
+    }
+    .send-confirm-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .send-confirm-actions .btn {
+      flex: 1;
+      min-width: 120px;
+      justify-content: center;
+    }
+</style>
+
+  <!-- مكتبة Leaflet + OpenStreetMap لتحديد موقع التوصيل بدون مفتاح API -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+</head>
+<body class="theme-0">
+  <div class="page">
+    <header>
+      <div class="title">
+        <div class="header-left">
+          <div class="logo-circle">م ذ</div>
+        </div>
+        <div class="header-right">
+          <div class="header-theme-wrapper">
+            <div>
+              <h1 id="restaurant-name">المشاوي الذهبية</h1>
+              <p>تقدم أشهى أطباق المشاوي من أجود أنواع اللحوم</p>
+            </div>
+            <div style="display: flex; align-items: center; justify-content: flex-end; gap: 10px;">
+              <div class="badge">نسخة تجريبية</div>
+              <div class="theme-switcher" title="تغيير تصميم الصفحة">
+                <div class="theme-picker-container">
+                  <button type="button" class="theme-toggle-btn" id="theme-toggle-btn" aria-label="تغيير ألوان الصفحة">🎨</button>
+                  <div class="theme-panel" id="theme-panel">
+                    <div class="theme-dot active" data-theme="0" title="الأحمر × الأساسي"></div>
+                    <div class="theme-dot" data-theme="1" title="أسود × ذهبي"></div>
+                    <div class="theme-dot" data-theme="2" title="أحمر × أسود"></div>
+                    <div class="theme-dot" data-theme="3" title="أبيض × أخضر"></div>
+                    <div class="theme-dot" data-theme="4" title="أزرق × برتقالي"></div>
+                    <div class="theme-dot" data-theme="5" title="بيج × بني"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="category-hero" id="category-hero">
+        <div class="category-hero-content">
+          <div class="hero-title" id="hero-title"></div>
+          <div class="hero-subtitle" id="hero-subtitle"></div>
+        </div>
+      </div>
+
+      <div class="categories-bar-wrapper">
+        <div class="categories-bar" id="categories-bar"></div>
+      </div>
+
+      <div class="section-header">
+        <div class="section-title" id="section-title"></div>
+        <div class="section-subtitle" id="section-subtitle"></div>
+      </div>
+
+      <div class="items-list" id="items-list"></div>
+    </main>
+
+    <div class="cart-fab">
+      <button id="open-cart-btn">
+        <span class="cart-fab-title">🛒 السلة</span>
+        <span class="cart-fab-count-group">
+          <span class="cart-count-label">عدد الأصناف</span>
+          <span class="cart-fab-badge" id="cart-fab-count">0</span>
+        </span>
+        <span class="cart-fab-total-group">
+          <span class="cart-total-label">الإجمالي</span>
+          <span class="cart-fab-total" id="cart-fab-total">0.00 ر.س</span>
+        </span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Cart -->
+  <div class="cart-overlay" id="cart-overlay">
+    <div class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cart-title">
+      <div class="cart-panel-header">
+        <h2 id="cart-title">السلة</h2>
+        <button class="cart-close-btn" id="close-cart-btn" aria-label="إغلاق السلة">✕</button>
+      </div>
+      <div class="cart-items" id="cart-items"></div>
+      <div class="cart-footer">
+        <div class="cart-footer-row">
+          <span>المجموع</span>
+          <span id="subtotal">0.00 ر.س</span>
+        </div>
+        <div class="cart-footer-row total">
+          <span>الإجمالي</span>
+          <span id="total">0.00 ر.س</span>
+        </div>
+        <div class="cart-actions">
+          <button class="btn btn-secondary" id="clear-cart-btn">مسح السلة</button>
+          <button class="btn btn-primary" id="whatsapp-btn">إرسال الطلب</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- شاشة إتمام الطلب (Checkout) بكامل الشاشة -->
+  <div class="checkout-screen" id="checkout-overlay" aria-hidden="true">
+    <div class="checkout-container" role="dialog" aria-modal="true">
+      <header class="checkout-header">
+        <button class="checkout-back-btn" id="checkout-back-btn" type="button" aria-label="رجوع">←</button>
+        <div class="checkout-title-wrapper">
+          <h2 class="checkout-title">إتمام الطلب</h2>
+          
+          <div class="checkout-steps-dots">
+            <span class="step-dot active" data-step="0"></span>
+            <span class="step-dot" data-step="1"></span>
+            <span class="step-dot" data-step="2"></span>
+          </div>
+        </div>
+        <button class="cart-close-btn" id="checkout-close-btn" aria-label="إغلاق">✕</button>
+      </header>
+
+      <main class="checkout-main">
+        <!-- الخطوة 1: اختيار الفرع ونوع الطلب -->
+        <section class="checkout-step active" data-step="0">
+          <div class="form-group">
+            <label for="checkout-branch-select" class="form-label">اختر الفرع</label>
+            <select id="checkout-branch-select" class="form-control">
+              <option value="dammam">فرع الدمام</option>
+              <option value="riyadh">فرع الرياض</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <span class="form-label">طريقة استلام الطلب</span>
+            <div class="radio-group">
+              <label><input type="radio" name="order-type" value="pickup" checked> استلام من المطعم</label>
+              <label><input type="radio" name="order-type" value="delivery"> توصيل للعنوان</label>
+            </div>
+          </div>
+        </section>
+
+        <!-- الخطوة 2: بيانات العميل + الخريطة -->
+        <section class="checkout-step" data-step="1">
+          <div class="form-group">
+            <label for="customer-name-input" class="form-label">الاسم</label>
+            <input id="customer-name-input" type="text" class="form-control" placeholder="اكتب اسمك">
+          </div>
+          <div class="form-group">
+            <label for="customer-phone-input" class="form-label">رقم الجوال</label>
+            <input id="customer-phone-input" type="tel" class="form-control" placeholder="05XXXXXXXX">
+          </div>
+          <div class="form-group delivery-only">
+            <span class="form-label">موقع التوصيل على الخريطة</span>
+            <div id="delivery-map" class="delivery-map"></div>
+            <button type="button" class="btn btn-secondary small" id="use-current-location-btn">استخدام موقعي الحالي</button>
+            <p class="hint">اضغط على الخريطة لتحديد مكان التوصيل. لن نطلب منك كتابة العنوان يدوياً.</p>
+          </div>
+        </section>
+
+        <!-- الخطوة 3: طريقة الدفع -->
+        <section class="checkout-step" data-step="2">
+          <div class="form-group">
+            <span class="form-label">طريقة الدفع</span>
+            <div class="radio-group">
+              <label><input type="radio" name="payment-method" value="cash" checked> نقداً</label>
+              <label><input type="radio" name="payment-method" value="card"> بطاقة</label>
+              <label><input type="radio" name="payment-method" value="online"> الدفع الإلكتروني</label>
+            </div>
+          </div>
+          <p class="hint">سيتم إرسال تفاصيل الطلب كاملة إلى المطعم عبر واتساب، وسيتم تأكيد مبلغ الدفع من المطعم مباشرة.</p>
+        </section>
+      </main>
+
+      <footer class="checkout-footer">
+        <button class="btn btn-primary checkout-next-btn" id="checkout-next-btn" type="button">متابعة</button>
+      </footer>
+    </div>
+  </div>
+  <!-- Customization Modal -->
+  <div class="overlay" id="customization-overlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-header">
+        <div>
+          <h3 id="modal-title">تخصيص الطلب</h3>
+          <div id="modal-subtitle" style="font-size:0.8rem;color:var(--muted);"></div>
+        </div>
+        <button type="button" id="close-modal-btn" aria-label="إغلاق">✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="field-group" id="size-section">
+          <label>حجم الوجبة</label>
+          <div class="options-row" id="size-options"></div>
+        </div>
+
+        <div class="field-group" id="bread-section">
+          <label>نوع الخبز</label>
+          <div class="options-row" id="bread-options"></div>
+        </div>
+
+        <div class="field-group" id="extras-section">
+          <label>إضافات</label>
+          <div class="checkbox-list" id="extras-options"></div>
+        </div>
+
+        <div class="field-group" id="removal-section">
+          <label>حذف مكونات</label>
+          <div class="checkbox-list" id="removal-options"></div>
+        </div>
+
+        <div class="field-group" id="drinks-section">
+          <label id="drinks-section-label">المشروب</label>
+          <div class="drink-grid" id="drinks-options"></div>
+        </div>
+
+        <div class="field-group">
+          <label>الكمية</label>
+          <div class="quantity-row">
+            <button type="button" id="qty-minus">-</button>
+            <span id="qty-value">1</span>
+            <button type="button" id="qty-plus">+</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <div>السعر: <span id="modal-price">0.00 ر.س</span></div>
+        <button type="button" class="btn btn-primary" id="save-item-btn">إضافة للسلة</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* =======================
+       مركز الإعدادات الرئيسي
+       ======================= */
+    const appSettings = {
+      restaurantName: "المشاوي الذهبية",
+      whatsappNumber: "966509770264", // رقم افتراضي يمكن تعديله لكل مطعم
+      currencySymbol: "ر.س"
+    };
+
+    // فروع المطعم (ديمو لفرعين فقط)
+    const branches = [
+      {
+        id: "dammam",
+        name: "فرع الدمام",
+        whatsappNumber: "966509770264",
+        location: { lat: 26.420381, lng: 50.088720 }
+      },
+      {
+        id: "riyadh",
+        name: "فرع الرياض",
+        whatsappNumber: "966500000000",
+        location: { lat: 24.7135517, lng: 46.6752957 }
+      }
+    ];
+    let currentBranchId = "dammam";
+
+    function getCurrentBranch() {
+      return branches.find(b => b.id === currentBranchId) || branches[0];
+    }
+
+    // تنسيق الأسعار باستخدام العملة من الإعدادات
+    function formatPrice(amount) {
+      return amount.toFixed(2) + " " + appSettings.currencySymbol;
+    }
+
+    // تطبيق إعدادات المطعم على العناصر الظاهرة
+    function applyRestaurantSettings() {
+      const nameEl = document.getElementById("restaurant-name");
+      if (nameEl) {
+        nameEl.textContent = appSettings.restaurantName;
+      }
+      if (document && document.title) {
+        document.title = appSettings.restaurantName;
+      }
+    }
+
+    function getWhatsappPhoneForBranch() {
+      const branch = getCurrentBranch();
+      return branch.whatsappNumber.replace(/^00+/, "");
+    }
+
+    // وظيفة تغيير الثيمات
+    function initThemeSwitcher() {
+      const dots = document.querySelectorAll(".theme-dot");
+      const body = document.body;
+
+      dots.forEach(dot => {
+        dot.addEventListener("click", () => {
+          const theme = dot.getAttribute("data-theme");
+          body.className = "theme-" + theme;
+          dots.forEach(d => d.classList.remove("active"));
+          dot.classList.add("active");
+          
+          // حفظ الثيم المختار في localStorage
+          localStorage.setItem('mashawi-theme', theme);
+        });
+      });
+      
+      // تحميل الثيم المحفوظ
+      const savedTheme = localStorage.getItem('mashawi-theme');
+      if (savedTheme) {
+        body.className = "theme-" + savedTheme;
+        dots.forEach(d => {
+          d.classList.toggle('active', d.getAttribute('data-theme') === savedTheme);
+        });
+      }
+    }
+
+    
+function initThemePanelToggle() {
+  const toggleBtn = document.getElementById('theme-toggle-btn');
+  const panel = document.getElementById('theme-panel');
+  if (!toggleBtn || !panel) return;
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = panel.classList.contains('open');
+    panel.classList.toggle('open', !isOpen);
+    toggleBtn.classList.toggle('active', !isOpen);
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!panel.classList.contains('open')) return;
+    if (panel.contains(e.target) || e.target === toggleBtn) return;
+    panel.classList.remove('open');
+    toggleBtn.classList.remove('active');
+  });
+}
+
+// بيانات القائمة (نفسها تماماً)
+    const categories = [
+      { id: "grills",   label: "المشاوي",       subtitle: "كباب، شيش طاووق، مشوي مشكل" },
+      { id: "drinks",   label: "المشروبات",    subtitle: "مشروبات غازية وماء" },
+      { id: "sides",    label: "الأطباق الجانبية", subtitle: "بطاطس ومقبلات خفيفة" }
+    ];
+
+    const categoryHeroImages = {
+      grills:   "https://i.ibb.co/gMP1LPjM/image.webp",
+      drinks:   "https://i.ibb.co/LhS1Fzh6/012000057564-01.webp",
+      sides:    "https://i.ibb.co/67xnqJQt/images.jpg"
+    };
+
+    const menuItems = [
+      {
+        id: "grill_kebab_beef", category: "grills", kind: "grill", hasBread: false,
+        name: "كباب لحم",
+        desc: "سيخ كباب لحم مشوي على الفحم مع خبز وسلطة.",
+        price: 26,
+        img: "https://i.ibb.co/whZDHTXj/pngtree-3d-kebabs-turkish-cuisine-png-image-13687463.png"
+      },
+      {
+        id: "grill_kebab_chicken", category: "grills", kind: "grill", hasBread: false,
+        name: "كباب دجاج",
+        desc: "قطع دجاج مفروم متبل ومشوي على الفحم.",
+        price: 24,
+        img: "https://i.ibb.co/gMP1LPjM/image.webp"
+      },
+      {
+        id: "grill_shish_tawook", category: "grills", kind: "grill", hasBread: false,
+        name: "شيش طاووق",
+        desc: "قطع دجاج متبلة مشوية مع خضار.",
+        price: 25,
+        img: "https://i.ibb.co/5WnpMvsV/8712883013-894d499cc6-b.jpg"
+      },
+      {
+        id: "drink_pepsi", category: "drinks", kind: "drink", hasBread: false,
+        name: "بيبسي",
+        desc: "مشروب غازي بارد.",
+        price: 3,
+        img: "https://i.ibb.co/QjpGtgwz/images.jpg"
+      },
+      {
+        id: "drink_mirinda", category: "drinks", kind: "drink", hasBread: false,
+        name: "ميرندا",
+        desc: "مشروب غازي بنكهة البرتقال.",
+        price: 3,
+        img: "https://i.ibb.co/ycg52V58/627665-main.jpg"
+      },
+      {
+        id: "drink_sevenup", category: "drinks", kind: "drink", hasBread: false,
+        name: "سفن أب",
+        desc: "مشروب غازي منعش.",
+        price: 3,
+        img: "https://i.ibb.co/XZG46PvQ/images.jpg"
+      },
+      {
+        id: "drink_dew", category: "drinks", kind: "drink", hasBread: false,
+        name: "ديو",
+        desc: "مشروب غازي بالليمون.",
+        price: 3,
+        img: "https://i.ibb.co/LhS1Fzh6/012000057564-01.webp"
+      },
+      {
+        id: "drink_water", category: "drinks", kind: "drink", hasBread: false,
+        name: "ماء",
+        desc: "ماء صحي مبرد.",
+        price: 1,
+        img: "https://i.ibb.co/PsYb8T6y/Qkev-M1up-N0-Kb0vp-Qut-Od-SMnf-XQm-L4-Bx-Gkz32v-Fo4.jpg"
+      },
+      {
+        id: "side_fries", category: "sides", kind: "side", hasBread: false,
+        name: "بطاطس مقرمشة",
+        desc: "بطاطس مقلية ذهبية.",
+        price: 8,
+        img: "https://i.ibb.co/67xnqJQt/images.jpg"
+      },
+      {
+        id: "side_fries_cheese", category: "sides", kind: "side", hasBread: false,
+        name: "بطاطس سبايسي",
+        desc: "بطاطس بصوص سبايسي حار.",
+        price: 10,
+        img: "https://i.ibb.co/DZt1Lbf/Potato-spaice.jpg"
+      }
+    ];
+
+    const sizeOptions = [
+      { id: "normal", label: "عادي", extra: 0 },
+      { id: "medium", label: "صاروخ (+2 ر.س)", extra: 2 },
+      { id: "large", label: "ممتاز (+4 ر.س)", extra: 4 }
+    ];
+
+    const burgerSizeOptions = [
+      { id: "normal", label: "عادي", extra: 0 },
+      { id: "medium", label: "وسط (+2 ر.س)", extra: 2 },
+      { id: "large", label: "كبير (+4 ر.س)", extra: 4 }
+    ];
+
+    const breadOptions = [
+      { id: "white", label: "خبز عادي" },
+      { id: "brown", label: "خبز بر" }
+    ];
+
+    const extrasOptions = [
+      { id: "ketchup",      label: "كاتشب",                 extra: 0 },
+      { id: "mayo",         label: "مايونيز",               extra: 0 },
+      { id: "lettuce",      label: "خس",                    extra: 0 },
+      { id: "garlic",       label: "ثوم",                   extra: 0 },
+      { id: "extra_cheese", label: "إضافة جبن (+2 ر.س)",    extra: 2 },
+      { id: "pickles",      label: "مخلل",                  extra: 0 }
+    ];
+
+    const removalOptions = [
+      { id: "no_cheese",  label: "بدون جبن" },
+      { id: "no_lettuce", label: "بدون خس" },
+      { id: "no_tomato",  label: "بدون طماطم" },
+      { id: "no_onion",   label: "بدون بصل" },
+      { id: "no_pickles", label: "بدون مخلل" },
+      { id: "no_garlic",  label: "بدون ثوم" }
+    ];
+
+    const comboDrinks = [
+      { id: "pepsi",       label: "بيبسي",      img: "https://i.ibb.co/QjpGtgwz/images.jpg" },
+      { id: "mirinda",     label: "ميرندا",     img: "https://i.ibb.co/ycg52V58/627665-main.jpg" },
+      { id: "sevenup",     label: "سفن أب",     img: "https://i.ibb.co/XZG46PvQ/images.jpg" },
+      { id: "dew",         label: "ديو",        img: "https://i.ibb.co/LhS1Fzh6/012000057564-01.webp" },
+      { id: "water_combo", label: "ماء",        img: "https://i.ibb.co/PsYb8T6y/Qkev-M1up-N0-Kb0vp-Qut-Od-SMnf-XQm-L4-Bx-Gkz32v-Fo4.jpg" }
+    ];
+
+    const kidsJuices = [
+      { id: "orange_juice", label: "عصير برتقال", img: "https://i.ibb.co/CpKjmNc6/Orang.png" },
+      { id: "apple_juice",  label: "عصير تفاح",   img: "https://i.ibb.co/Xx0kNmbC/Appel.jpg" }
+    ];
+
+    // DOM Elements
+    const categoriesBarEl = document.getElementById("categories-bar");
+    const itemsListEl = document.getElementById("items-list");
+    const sectionTitleEl = document.getElementById("section-title");
+    const sectionSubtitleEl = document.getElementById("section-subtitle");
+    const heroEl = document.getElementById("category-hero");
+    const heroTitleEl = document.getElementById("hero-title");
+    const heroSubtitleEl = document.getElementById("hero-subtitle");
+
+    const cartOverlayEl = document.getElementById("cart-overlay");
+    const openCartBtn = document.getElementById("open-cart-btn");
+    const closeCartBtn = document.getElementById("close-cart-btn");
+    const cartItemsEl = document.getElementById("cart-items");
+    const subtotalEl = document.getElementById("subtotal");
+    const totalEl = document.getElementById("total");
+    const cartFabCountEl = document.getElementById("cart-fab-count");
+    const cartFabTotalEl = document.getElementById("cart-fab-total");
+    const clearCartBtn = document.getElementById("clear-cart-btn");
+    const whatsappBtn = document.getElementById("whatsapp-btn");
+
+    const overlayEl = document.getElementById("customization-overlay");
+    const modalSubtitleEl = document.getElementById("modal-subtitle");
+    const modalPriceEl = document.getElementById("modal-price");
+    const saveItemBtn = document.getElementById("save-item-btn");
+    const closeModalBtn = document.getElementById("close-modal-btn");
+    const sizeSectionEl = document.getElementById("size-section");
+    const breadSectionEl = document.getElementById("bread-section");
+    const extrasSectionEl = document.getElementById("extras-section");
+    const removalSectionEl = document.getElementById("removal-section");
+    const drinksSectionEl = document.getElementById("drinks-section");
+    const drinksSectionLabelEl = document.getElementById("drinks-section-label");
+    const sizeOptionsEl = document.getElementById("size-options");
+    const breadOptionsEl = document.getElementById("bread-options");
+    const extrasOptionsEl = document.getElementById("extras-options");
+    const removalOptionsEl = document.getElementById("removal-options");
+    const drinksOptionsEl = document.getElementById("drinks-options");
+    const qtyMinusBtn = document.getElementById("qty-minus");
+    const qtyPlusBtn = document.getElementById("qty-plus");
+    const qtyValueEl = document.getElementById("qty-value");
+
+    let activeCategoryId = "grills";
+    let cart = [];
+    let currentItem = null;
+    let currentKind = null;
+    let currentHasBread = false;
+    let editingIndex = null;
+
+    function showToast(message, type = 'success') {
+      const existingToast = document.querySelector('.toast');
+      if (existingToast) existingToast.remove();
+      
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.textContent = message;
+      toast.style.background = type === 'error' ? '#f44336' : '#4caf50';
+      document.body.appendChild(toast);
+      
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+          if (toast.parentNode) toast.remove();
+        }, 300);
+      }, 3000);
+    }
+
+    function renderTabs() {
+      categoriesBarEl.innerHTML = "";
+      categories.forEach((cat, idx) => {
+        const btn = document.createElement("button");
+        btn.className = "category-tab" + (idx === 0 ? " active" : "");
+        btn.textContent = cat.label;
+        btn.dataset.categoryId = cat.id;
+        categoriesBarEl.appendChild(btn);
+      });
+    }
+
+    function updateHero(catId) {
+      const cat = categories.find(c => c.id === catId);
+      if (!cat) return;
+      const heroUrl = categoryHeroImages[catId];
+      heroEl.style.backgroundImage = heroUrl ? "url('" + heroUrl + "')" : "none";
+      heroTitleEl.textContent = cat.label;
+      heroSubtitleEl.textContent = cat.subtitle || "";
+    }
+
+    function renderItemsForCategory(catId) {
+      activeCategoryId = catId;
+      const cat = categories.find(c => c.id === catId);
+      sectionTitleEl.textContent = cat ? cat.label : "";
+      sectionSubtitleEl.textContent = cat && cat.subtitle ? cat.subtitle : "";
+      updateHero(catId);
+
+      itemsListEl.innerHTML = "";
+      const items = menuItems.filter(i => i.category === catId);
+      items.forEach(item => {
+        const card = document.createElement("article");
+        card.className = "item-card";
+        card.innerHTML = `
+          <div class="item-image-wrap">
+            <img src="${item.img}" alt="${item.name}" loading="lazy">
+          </div>
+          <div class="item-body">
+            <div class="item-main-text">
+              <div class="item-name">${item.name}</div>
+              <div class="item-desc">${item.desc}</div>
+            </div>
+            <div class="item-bottom-row">
+              <div class="item-price">${item.price.toFixed(2)} ر.س</div>
+              <button class="btn btn-primary" data-item-id="${item.id}">
+                + إضافة للسلة
+              </button>
+            </div>
+          </div>
+        `;
+        itemsListEl.appendChild(card);
+      });
+    }
+
+    categoriesBarEl.addEventListener("click", (e) => {
+      const btn = e.target.closest(".category-tab");
+      if (!btn) return;
+      const catId = btn.dataset.categoryId;
+      document.querySelectorAll(".category-tab").forEach(b => {
+        b.classList.toggle("active", b.dataset.categoryId === catId);
+      });
+      renderItemsForCategory(catId);
+    });
+
+    function findItemById(id) {
+      return menuItems.find(i => i.id === id) || null;
+    }
+
+    function buildSizeOptions(selectedId, kind = "") {
+      sizeOptionsEl.innerHTML = "";
+      let options = sizeOptions;
+      
+      if (kind === "burger") {
+        options = burgerSizeOptions;
+      } else if (kind === "shawarma") {
+        options = [
+          { id: "normal", label: "عادي", extra: 0 },
+          { id: "medium", label: "صاروخ (+2 ر.س)", extra: 2 }
+        ];
+      } else if (kind === "shawarma_meal") {
+        sizeSectionEl.style.display = "none";
+        return;
+      } else {
+        sizeSectionEl.style.display = "block";
+      }
+      
+      options.forEach(opt => {
+        const id = "size_" + opt.id;
+        const label = document.createElement("label");
+        label.htmlFor = id;
+        label.innerHTML = `
+          <input type="radio" name="size" id="${id}" value="${opt.id}" 
+            ${selectedId === opt.id || (!selectedId && opt.id === "normal") ? "checked" : ""}>
+          ${opt.label}
+        `;
+        sizeOptionsEl.appendChild(label);
+      });
+    }
+
+    function buildBreadOptions(selectedId, kind = "") {
+      breadOptionsEl.innerHTML = "";
+      
+      if (kind === "shawarma_meal") {
+        breadSectionEl.style.display = "none";
+        return;
+      } else {
+        breadSectionEl.style.display = "block";
+      }
+      
+      breadOptions.forEach(opt => {
+        const id = "bread_" + opt.id;
+        const label = document.createElement("label");
+        label.htmlFor = id;
+        label.innerHTML = `
+          <input type="radio" name="bread" id="${id}" value="${opt.id}" 
+            ${selectedId === opt.id || (!selectedId && opt.id === "white") ? "checked" : ""}>
+          ${opt.label}
+        `;
+        breadOptionsEl.appendChild(label);
+      });
+    }
+
+    function buildExtrasOptions(selectedIds = []) {
+      extrasOptionsEl.innerHTML = "";
+      extrasOptions.forEach(opt => {
+        const id = "extra_" + opt.id;
+        const wrap = document.createElement("label");
+        wrap.className = "checkbox-pill";
+        wrap.htmlFor = id;
+        const checked = selectedIds.includes(opt.id);
+        wrap.innerHTML = `
+          <input type="checkbox" id="${id}" value="${opt.id}" data-price="${opt.extra}" 
+            ${checked ? "checked" : ""}>
+          ${opt.label}
+        `;
+        extrasOptionsEl.appendChild(wrap);
+      });
+    }
+
+    function buildRemovalOptions(selectedIds = []) {
+      removalOptionsEl.innerHTML = "";
+      removalOptions.forEach(opt => {
+        const id = "removal_" + opt.id;
+        const wrap = document.createElement("label");
+        wrap.className = "checkbox-pill";
+        wrap.htmlFor = id;
+        const checked = selectedIds.includes(opt.id);
+        wrap.innerHTML = `
+          <input type="checkbox" id="${id}" value="${opt.id}" 
+            ${checked ? "checked" : ""}>
+          ${opt.label}
+        `;
+        removalOptionsEl.appendChild(wrap);
+      });
+    }
+
+    function buildDrinksOrJuicesOptions(kind, selectedId) {
+      drinksOptionsEl.innerHTML = "";
+      const list = kind === "kids" ? kidsJuices : comboDrinks;
+      list.forEach(opt => {
+        const id = (kind === "kids" ? "kidsjuice_" : "combo_drink_") + opt.id;
+        const card = document.createElement("label");
+        card.className = "drink-card";
+        card.htmlFor = id;
+        card.innerHTML = `
+          <img src="${opt.img}" alt="${opt.label}" loading="lazy">
+          <input type="radio" name="combo_drink" id="${id}" value="${opt.id}" 
+            ${selectedId === opt.id ? "checked" : ""}>
+          <div>${opt.label}</div>
+        `;
+        drinksOptionsEl.appendChild(card);
+      });
+    }
+
+    function openModalForItem(itemId, existingCartItem = null, index = null) {
+      const item = findItemById(itemId);
+      if (!item) return;
+      currentItem = item;
+      currentKind = item.kind;
+      currentHasBread = item.hasBread;
+      editingIndex = index;
+
+      modalSubtitleEl.textContent = item.name;
+
+      sizeSectionEl.style.display = "block";
+      breadSectionEl.style.display = "block";
+      extrasSectionEl.style.display = "block";
+      removalSectionEl.style.display = "block";
+      drinksSectionEl.style.display = "block";
+
+      if (currentKind === "drink") {
+        sizeSectionEl.style.display = "none";
+        breadSectionEl.style.display = "none";
+        extrasSectionEl.style.display = "none";
+        removalSectionEl.style.display = "none";
+        drinksSectionEl.style.display = "none";
+      } else if (currentKind === "grill") {
+        sizeSectionEl.style.display = "none";
+        breadSectionEl.style.display = "none";
+        extrasSectionEl.style.display = "none";
+        removalSectionEl.style.display = "none";
+        drinksSectionEl.style.display = "none";
+      } else if (currentKind === "shawarma") {
+        sizeSectionEl.style.display = "block";
+        breadSectionEl.style.display = currentHasBread ? "block" : "none";
+        extrasSectionEl.style.display = "block";
+        removalSectionEl.style.display = "block";
+        drinksSectionEl.style.display = "none";
+        
+        const selectedSize = existingCartItem ? existingCartItem.sizeId : null;
+        const selectedBread = existingCartItem ? existingCartItem.breadId : null;
+        const selectedExtras = existingCartItem ? (existingCartItem.extras || []) : [];
+        const selectedRemovals = existingCartItem ? (existingCartItem.removals || []) : [];
+        
+        buildSizeOptions(selectedSize, "shawarma");
+        buildBreadOptions(selectedBread, "shawarma");
+        buildExtrasOptions(selectedExtras);
+        buildRemovalOptions(selectedRemovals);
+      } else if (currentKind === "shawarma_meal") {
+        sizeSectionEl.style.display = "none";
+        breadSectionEl.style.display = "none";
+        extrasSectionEl.style.display = "block";
+        removalSectionEl.style.display = "block";
+        drinksSectionEl.style.display = "none";
+        
+        const selectedExtras = existingCartItem ? (existingCartItem.extras || []) : [];
+        const selectedRemovals = existingCartItem ? (existingCartItem.removals || []) : [];
+        
+        buildExtrasOptions(selectedExtras);
+        buildRemovalOptions(selectedRemovals);
+      } else if (currentKind === "burger") {
+        sizeSectionEl.style.display = "block";
+        breadSectionEl.style.display = currentHasBread ? "block" : "none";
+        extrasSectionEl.style.display = "block";
+        removalSectionEl.style.display = "block";
+        drinksSectionEl.style.display = "block";
+        drinksSectionLabelEl.textContent = "المشروب";
+        
+        const selectedSize = existingCartItem ? existingCartItem.sizeId : null;
+        const selectedBread = existingCartItem ? existingCartItem.breadId : null;
+        const selectedExtras = existingCartItem ? (existingCartItem.extras || []) : [];
+        const selectedRemovals = existingCartItem ? (existingCartItem.removals || []) : [];
+        const selectedDrink = existingCartItem ? existingCartItem.drinkId : null;
+        
+        buildSizeOptions(selectedSize, "burger");
+        buildBreadOptions(selectedBread, "burger");
+        buildExtrasOptions(selectedExtras);
+        buildRemovalOptions(selectedRemovals);
+        buildDrinksOrJuicesOptions("meal", selectedDrink);
+      } else if (currentKind === "kids") {
+        sizeSectionEl.style.display = "none";
+        breadSectionEl.style.display = "none";
+        extrasSectionEl.style.display = "block";
+        removalSectionEl.style.display = "block";
+        drinksSectionEl.style.display = "block";
+        drinksSectionLabelEl.textContent = "العصير";
+        
+        const selectedExtras = existingCartItem ? (existingCartItem.extras || []) : [];
+        const selectedRemovals = existingCartItem ? (existingCartItem.removals || []) : [];
+        const selectedDrink = existingCartItem ? existingCartItem.drinkId : null;
+        
+        buildExtrasOptions(selectedExtras);
+        buildRemovalOptions(selectedRemovals);
+        buildDrinksOrJuicesOptions("kids", selectedDrink);
+      } else if (currentKind === "side") {
+        sizeSectionEl.style.display = "none";
+        breadSectionEl.style.display = "none";
+        extrasSectionEl.style.display = "none";
+        removalSectionEl.style.display = "none";
+        drinksSectionEl.style.display = "none";
+      }
+
+      let qty = 1;
+      if (existingCartItem) {
+        qty = existingCartItem.qty;
+      }
+      qtyValueEl.textContent = qty;
+
+      updateModalPrice();
+      saveItemBtn.textContent = editingIndex === null ? "إضافة للسلة" : "حفظ التعديل";
+
+      overlayEl.classList.add("active");
+    }
+
+    function closeModal() {
+      overlayEl.classList.remove("active");
+      currentItem = null;
+      currentKind = null;
+      editingIndex = null;
+    }
+
+    function getSelectedSizeId() {
+      const checked = document.querySelector('input[name="size"]:checked');
+      return checked ? checked.value : "normal";
+    }
+
+    function getSelectedBreadId() {
+      const checked = document.querySelector('input[name="bread"]:checked');
+      return checked ? checked.value : "white";
+    }
+
+    function getSelectedExtras() {
+      const selected = [];
+      document.querySelectorAll('#extras-options input[type="checkbox"]:checked').forEach(chk => {
+        selected.push(chk.value);
+      });
+      return selected;
+    }
+
+    function getSelectedRemovals() {
+      const selected = [];
+      document.querySelectorAll('#removal-options input[type="checkbox"]:checked').forEach(chk => {
+        selected.push(chk.value);
+      });
+      return selected;
+    }
+
+    function getSelectedDrinkId() {
+      const checked = document.querySelector('input[name="combo_drink"]:checked');
+      return checked ? checked.value : null;
+    }
+
+    function calculateUnitPrice() {
+      if (!currentItem) return 0;
+      let price = currentItem.price;
+
+      if (currentKind === "shawarma" || currentKind === "burger") {
+        const sizeId = getSelectedSizeId();
+        let sizeOpt;
+        
+        if (currentKind === "burger") {
+          sizeOpt = burgerSizeOptions.find(s => s.id === sizeId);
+        } else if (currentKind === "shawarma") {
+          const shawarmaSizes = [
+            { id: "normal", label: "عادي", extra: 0 },
+            { id: "medium", label: "صاروخ (+2 ر.س)", extra: 2 }
+          ];
+          sizeOpt = shawarmaSizes.find(s => s.id === sizeId);
+        }
+        
+        if (sizeOpt) price += sizeOpt.extra;
+      }
+
+      if (currentKind !== "drink" && currentKind !== "grill" && currentKind !== "side") {
+        document.querySelectorAll('#extras-options input[type="checkbox"]:checked').forEach(chk => {
+          const extraPrice = parseFloat(chk.getAttribute("data-price")) || 0;
+          price += extraPrice;
+        });
+      }
+
+      return price;
+    }
+
+    function updateModalPrice() {
+      if (!currentItem) return;
+      const unitPrice = calculateUnitPrice();
+      const qty = parseInt(qtyValueEl.textContent, 10) || 1;
+      const total = unitPrice * qty;
+      modalPriceEl.textContent = formatPrice(total);
+    }
+
+    qtyMinusBtn.addEventListener("click", () => {
+      let qty = parseInt(qtyValueEl.textContent, 10) || 1;
+      if (qty > 1) {
+        qty--;
+        qtyValueEl.textContent = qty;
+        updateModalPrice();
+      }
+    });
+
+    qtyPlusBtn.addEventListener("click", () => {
+      let qty = parseInt(qtyValueEl.textContent, 10) || 1;
+      qty++;
+      qtyValueEl.textContent = qty;
+      updateModalPrice();
+    });
+
+    document.addEventListener("change", (e) => {
+      if (e.target.name === "size" || e.target.name === "bread" || e.target.id.startsWith("extra_")) {
+        updateModalPrice();
+      }
+    });
+
+    closeModalBtn.addEventListener("click", closeModal);
+    overlayEl.addEventListener("click", (e) => {
+      if (e.target === overlayEl) closeModal();
+    });
+
+    saveItemBtn.addEventListener("click", () => {
+      if (!currentItem) return;
+
+      const qty = parseInt(qtyValueEl.textContent, 10) || 1;
+
+      let sizeId = null;
+      let breadId = null;
+      let extras = [];
+      let removals = [];
+      let drinkId = null;
+
+      if (currentKind === "shawarma" || currentKind === "burger") {
+        sizeId = getSelectedSizeId();
+      }
+
+      if (currentKind === "shawarma" || currentKind === "burger") {
+        breadId = getSelectedBreadId();
+      }
+
+      if (currentKind !== "grill" && currentKind !== "drink" && currentKind !== "side") {
+        extras = getSelectedExtras();
+        removals = getSelectedRemovals();
+      }
+
+      if (currentKind === "burger" || currentKind === "kids") {
+        drinkId = getSelectedDrinkId();
+      }
+
+      const unitPrice = calculateUnitPrice();
+
+      const itemData = {
+        id: currentItem.id,
+        name: currentItem.name,
+        basePrice: currentItem.price,
+        unitPrice,
+        kind: currentKind,
+        sizeId,
+        breadId,
+        extras,
+        removals,
+        drinkId,
+        qty
+      };
+
+      if (editingIndex === null) {
+        cart.push(itemData);
+        showToast(`تم إضافة ${itemData.name} إلى السلة!`);
+      } else {
+        cart[editingIndex] = itemData;
+        showToast(`تم تعديل ${itemData.name} في السلة!`);
+      }
+
+      renderCart();
+      closeModal();
+    });
+
+    function renderCart() {
+      cartItemsEl.innerHTML = "";
+      if (cart.length === 0) {
+        cartItemsEl.innerHTML = '<div class="cart-empty">السلة فارغة حالياً.</div>';
+      } else {
+        cart.forEach((cartItem, index) => {
+          const div = document.createElement("div");
+          div.className = "cart-item";
+
+          const sizeMap = {};
+          if (cartItem.kind === "burger") {
+            burgerSizeOptions.forEach(s => sizeMap[s.id] = s.label);
+          } else if (cartItem.kind === "shawarma" || cartItem.kind === "shawarma_meal") {
+            const shawarmaSizes = [
+              { id: "normal", label: "عادي" },
+              { id: "medium", label: "صاروخ" }
+            ];
+            shawarmaSizes.forEach(s => sizeMap[s.id] = s.label);
+          }
+          
+          const breadMap = {}; breadOptions.forEach(b => breadMap[b.id] = b.label);
+          const extrasMap = {}; extrasOptions.forEach(e => extrasMap[e.id] = e.label);
+          const removalMap = {}; removalOptions.forEach(r => removalMap[r.id] = r.label);
+          const drinkMap = {};
+          comboDrinks.forEach(d => drinkMap[d.id] = d.label);
+          kidsJuices.forEach(j => drinkMap[j.id] = j.label);
+
+          const chips = [];
+
+          if (cartItem.sizeId && sizeMap[cartItem.sizeId]) {
+            chips.push('<span class="chip">' + sizeMap[cartItem.sizeId] + '</span>');
+          }
+          if (cartItem.breadId && breadMap[cartItem.breadId]) {
+            chips.push('<span class="chip">' + breadMap[cartItem.breadId] + '</span>');
+          }
+          (cartItem.extras || []).forEach(eId => {
+            if (extrasMap[eId]) chips.push('<span class="chip">' + extrasMap[eId] + '</span>');
+          });
+          (cartItem.removals || []).forEach(rId => {
+            if (removalMap[rId]) chips.push('<span class="chip">' + removalMap[rId] + '</span>');
+          });
+          if (cartItem.drinkId && drinkMap[cartItem.drinkId]) {
+            const labelPrefix = cartItem.kind === "kids" ? "عصير: " : "مشروب: ";
+            chips.push('<span class="chip">' + labelPrefix + drinkMap[cartItem.drinkId] + '</span>');
+          }
+
+          const lineTotal = cartItem.unitPrice * cartItem.qty;
+
+          div.innerHTML = `
+            <div class="cart-item-main">
+              <div class="cart-item-title">${cartItem.name}</div>
+              <div class="cart-item-meta">${chips.join("")}</div>
+            </div>
+            <div class="cart-item-qty-price">
+              <div>عدد: ${cartItem.qty}</div>
+              <div>${lineTotal.toFixed(2)} ر.س</div>
+            </div>
+            <div class="cart-item-actions">
+              <button class="btn-icon" data-action="edit" data-index="${index}">✏️ تعديل</button>
+              <button class="btn-icon danger" data-action="remove" data-index="${index}">🗑 حذف</button>
+            </div>
+          `;
+          cartItemsEl.appendChild(div);
+        });
+      }
+      updateTotals();
+      updateCartBadge();
+    }
+
+    function updateTotals() {
+      let subtotal = 0;
+      cart.forEach(item => {
+        subtotal += item.unitPrice * item.qty;
+      });
+      subtotalEl.textContent = subtotal.toFixed(2) + " ر.س";
+      totalEl.textContent = subtotal.toFixed(2) + " ر.س";
+      if (typeof cartFabTotalEl !== 'undefined' && cartFabTotalEl) {
+        cartFabTotalEl.textContent = subtotal.toFixed(2) + " ر.س";
+      }
+    }
+
+    function updateCartBadge() {
+        let count = 0;
+        cart.forEach(item => {
+          count += item.qty;
+        });
+        cartFabCountEl.textContent = count;
+      }
+
+    cartItemsEl.addEventListener("click", (e) => {
+      const btn = e.target.closest("button[data-action]");
+      if (!btn) return;
+      const index = parseInt(btn.getAttribute("data-index"), 10);
+      const action = btn.getAttribute("data-action");
+
+      if (action === "remove") {
+        if (confirm("هل تريد حذف هذا المنتج من السلة؟")) {
+          cart.splice(index, 1);
+          renderCart();
+          showToast("تم حذف المنتج من السلة");
+        }
+      } else if (action === "edit") {
+        const cartItem = cart[index];
+        openModalForItem(cartItem.id, cartItem, index);
+      }
+    });
+
+    clearCartBtn.addEventListener("click", () => {
+      if (!cart.length) {
+        showToast('السلة فارغة بالفعل!', 'error');
+        return;
+      }
+      if (confirm("مسح جميع محتويات السلة؟")) {
+        cart = [];
+        renderCart();
+        showToast("تم مسح السلة بالكامل");
+      }
+    });
+
+    
+    // عند الضغط على زر "إرسال الطلب" نفتح معالج إتمام الطلب
+    whatsappBtn.addEventListener("click", () => {
+      if (!cart.length) {
+        showToast('السلة فارغة، أضف بعض الطلبات أولاً.', 'error');
+        return;
+      }
+      openCheckoutWizard();
+    });
+
+openCartBtn.addEventListener("click", () => {
+      cartOverlayEl.classList.add("active");
+    });
+    closeCartBtn.addEventListener("click", () => {
+      cartOverlayEl.classList.remove("active");
+    });
+    cartOverlayEl.addEventListener("click", (e) => {
+      if (e.target === cartOverlayEl) {
+        cartOverlayEl.classList.remove("active");
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      const btn = e.target.closest(".item-card .btn-primary[data-item-id]");
+      if (!btn) return;
+      const itemId = btn.getAttribute("data-item-id");
+      openModalForItem(itemId);
+    });
+
+
+    // ============================
+    // منطق شاشة إتمام الطلب Checkout
+    // ============================
+    const checkoutData = {
+      branchId: currentBranchId,
+      orderType: "pickup",   // pickup | delivery
+      customerName: "",
+      customerPhone: "",
+      deliveryLat: null,
+      deliveryLng: null,
+      paymentMethod: "cash"  // cash | card | online
+    };
+
+    const checkoutOverlayEl = document.getElementById("checkout-overlay");
+    const checkoutBackBtn = document.getElementById("checkout-back-btn");
+    const checkoutCloseBtn = document.getElementById("checkout-close-btn");
+    const checkoutNextBtn = document.getElementById("checkout-next-btn");
+    const checkoutBranchSelectEl = document.getElementById("checkout-branch-select");
+    const customerNameInput = document.getElementById("customer-name-input");
+    const customerPhoneInput = document.getElementById("customer-phone-input");
+    const deliveryMapEl = document.getElementById("delivery-map");
+    const useCurrentLocationBtn = document.getElementById("use-current-location-btn");
+    const checkoutStepEls = document.querySelectorAll(".checkout-step");
+    const stepDotEls = document.querySelectorAll(".step-dot");
+    const sendConfirmOverlay = document.getElementById("send-confirm-overlay");
+    const sendConfirmYesBtn = document.getElementById("send-confirm-yes");
+    const sendConfirmCancelBtn = document.getElementById("send-confirm-cancel");
+
+
+    let checkoutStepIndex = 0;
+    let deliveryMap = null;
+    let deliveryMarker = null;
+
+    function setCheckoutStep(index) {
+      checkoutStepIndex = index;
+      checkoutStepEls.forEach((el, i) => {
+        el.classList.toggle("active", i === checkoutStepIndex);
+      });
+      stepDotEls.forEach((el, i) => {
+        el.classList.toggle("active", i === checkoutStepIndex);
+      });
+
+      // زر الرجوع يظهر فقط بعد الخطوة الأولى
+      if (checkoutBackBtn) {
+        checkoutBackBtn.style.visibility = checkoutStepIndex === 0 ? "hidden" : "visible";
+      }
+
+      // التحكم بظهور جزء الخريطة حسب نوع الطلب
+      const deliveryOnlyEls = document.querySelectorAll(".delivery-only");
+      const isDelivery = checkoutData.orderType === "delivery";
+      deliveryOnlyEls.forEach(el => {
+        el.style.display = isDelivery ? "flex" : "none";
+      });
+
+      // تهيئة خريطة التوصيل عند الوصول للخطوة 2
+      if (checkoutStepIndex === 1 && isDelivery) {
+        // إنشاء الخريطة لأول مرة عند الحاجة
+        if (!deliveryMap) {
+          initDeliveryMap();
+        }
+        // لو في موقع محفوظ، نركز الخريطة عليه ونحدث الماركر
+        if (deliveryMap && checkoutData.deliveryLat && checkoutData.deliveryLng && typeof L !== "undefined") {
+          const center = { lat: checkoutData.deliveryLat, lng: checkoutData.deliveryLng };
+          deliveryMap.setView([center.lat, center.lng], 15);
+          if (deliveryMarker) {
+            deliveryMarker.setLatLng([center.lat, center.lng]);
+          } else {
+            deliveryMarker = L.marker([center.lat, center.lng]).addTo(deliveryMap);
+          }
+        }
+        // إصلاح حجم الخريطة بعد ظهورها داخل الـ step
+        if (deliveryMap && typeof deliveryMap.invalidateSize === "function") {
+          setTimeout(() => {
+            deliveryMap.invalidateSize();
+          }, 300);
+        }
+      }
+      // تحديث نص زر المتابعة/الإرسال حسب المرحلة
+      const primaryBtn = document.querySelector(".checkout-footer .btn-primary, .checkout-footer .btn");
+      if (primaryBtn) {
+        primaryBtn.textContent = (checkoutStepIndex === checkoutStepEls.length - 1)
+          ? "إرسال الطلب"
+          : "متابعة";
+      }
+
+    }
+
+    function openCheckoutWizard() {
+      // تهيئة البيانات من الإعدادات الحالية
+      checkoutData.branchId = currentBranchId;
+      checkoutData.orderType = "pickup";
+      checkoutData.paymentMethod = "cash";
+      checkoutData.deliveryLat = null;
+      checkoutData.deliveryLng = null;
+
+      if (checkoutBranchSelectEl) {
+        checkoutBranchSelectEl.value = checkoutData.branchId;
+      }
+
+      const orderTypeInputs = document.querySelectorAll("input[name='order-type']");
+      orderTypeInputs.forEach(inp => {
+        inp.checked = inp.value === checkoutData.orderType;
+      });
+
+      const paymentInputs = document.querySelectorAll("input[name='payment-method']");
+      paymentInputs.forEach(inp => {
+        inp.checked = inp.value === checkoutData.paymentMethod;
+      });
+
+      // إعادة تفعيل الحقول
+      if (customerNameInput) customerNameInput.value = checkoutData.customerName || "";
+      if (customerPhoneInput) customerPhoneInput.value = checkoutData.customerPhone || "";
+
+      if (cartOverlayEl) {
+        cartOverlayEl.classList.remove("active");
+      }
+      checkoutOverlayEl.classList.add("active");
+      checkoutOverlayEl.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = 'hidden';
+      setCheckoutStep(0);
+    
+      // تغيير اسم زر المتابعة في آخر خطوة
+      const primaryBtn = document.querySelector(".checkout-footer .btn-primary, .checkout-footer .btn");
+      if (primaryBtn) {
+        if (checkoutStepIndex === checkoutStepEls.length - 1) {
+          primaryBtn.textContent = "إرسال الطلب";
+        } else {
+          primaryBtn.textContent = "متابعة";
+        }
+      }
+
+    }
+
+    function closeCheckoutWizard() {
+      checkoutOverlayEl.classList.remove("active");
+      checkoutOverlayEl.setAttribute("aria-hidden", "true");
+      document.body.style.overflow = '';
+    }
+
+    function initDeliveryMap() {
+      // تهيئة خريطة OpenStreetMap باستخدام Leaflet
+      if (!deliveryMapEl || typeof L === "undefined") {
+        return;
+      }
+      const branch = getCurrentBranch();
+      const center = branch.location || { lat: 24.7135517, lng: 46.6752957 }; // fallback الرياض
+
+      // إنشاء الخريطة
+      deliveryMap = L.map(deliveryMapEl).setView([center.lat, center.lng], 13);
+
+      // طبقة البلاط من OpenStreetMap
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 19,
+        attribution: "© OpenStreetMap contributors"
+      }).addTo(deliveryMap);
+
+      // اختيار الموقع عند الضغط على الخريطة
+      deliveryMap.on("click", (e) => {
+        const position = e.latlng;
+        if (!position) return;
+        checkoutData.deliveryLat = position.lat;
+        checkoutData.deliveryLng = position.lng;
+        if (!deliveryMarker) {
+          deliveryMarker = L.marker([position.lat, position.lng]).addTo(deliveryMap);
+        } else {
+          deliveryMarker.setLatLng([position.lat, position.lng]);
+        }
+      });
+    }
+
+    function useCurrentLocation() {
+      if (!navigator.geolocation) {
+        showToast("جهازك لا يدعم تحديد الموقع تلقائياً.", "error");
+        return;
+      }
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          const coords = {
+            lat: pos.coords.latitude,
+            lng: pos.coords.longitude
+          };
+          checkoutData.deliveryLat = coords.lat;
+          checkoutData.deliveryLng = coords.lng;
+          if (deliveryMap && typeof L !== "undefined") {
+            deliveryMap.setView([coords.lat, coords.lng], 15);
+            if (!deliveryMarker) {
+              deliveryMarker = L.marker([coords.lat, coords.lng]).addTo(deliveryMap);
+            } else {
+              deliveryMarker.setLatLng([coords.lat, coords.lng]);
+            }
+          }
+        },
+        () => {
+          showToast("تعذر الحصول على موقعك. يرجى اختيار الموقع من الخريطة.", "error");
+        }
+      );
+    }
+
+    function validateCurrentStep() {
+      if (checkoutStepIndex === 0) {
+        // اختيار الفرع ونوع الطلب
+        if (!checkoutBranchSelectEl || !checkoutBranchSelectEl.value) {
+          showToast("الرجاء اختيار الفرع.", "error");
+          return false;
+        }
+        checkoutData.branchId = checkoutBranchSelectEl.value;
+        currentBranchId = checkoutData.branchId;
+
+        const orderTypeInputs = document.querySelectorAll("input[name='order-type']");
+        let selectedType = null;
+        orderTypeInputs.forEach(inp => { if (inp.checked) selectedType = inp.value; });
+        if (!selectedType) {
+          showToast("الرجاء اختيار طريقة استلام الطلب.", "error");
+          return false;
+        }
+        checkoutData.orderType = selectedType;
+        return true;
+      }
+
+      if (checkoutStepIndex === 1) {
+        // بيانات العميل + الموقع (إذا توصيل)
+        const name = customerNameInput ? customerNameInput.value.trim() : "";
+        const phone = customerPhoneInput ? customerPhoneInput.value.trim() : "";
+        if (!name || !phone) {
+          showToast("الرجاء إدخال الاسم ورقم الجوال.", "error");
+          return false;
+        }
+        checkoutData.customerName = name;
+        checkoutData.customerPhone = phone;
+
+        if (checkoutData.orderType === "delivery") {
+          if (!checkoutData.deliveryLat || !checkoutData.deliveryLng) {
+            showToast("الرجاء اختيار موقع التوصيل من الخريطة.", "error");
+            return false;
+          }
+        }
+        return true;
+      }
+
+      if (checkoutStepIndex === 2) {
+        // طريقة الدفع
+        const paymentInputs = document.querySelectorAll("input[name='payment-method']");
+        let selectedPayment = null;
+        paymentInputs.forEach(inp => { if (inp.checked) selectedPayment = inp.value; });
+        if (!selectedPayment) {
+          showToast("الرجاء اختيار طريقة الدفع.", "error");
+          return false;
+        }
+        checkoutData.paymentMethod = selectedPayment;
+        return true;
+      }
+
+      return true;
+    }
+
+    function buildWhatsappMessageFromCheckout() {
+      const branch = getCurrentBranch();
+
+      // بناء جداول التخصيص مثل معالج الواتساب السابق
+      let total = 0;
+      const sizeMap = {};
+      burgerSizeOptions.forEach(s => sizeMap[s.id] = s.label);
+      const shawarmaSizes = [
+        { id: "normal", label: "عادي" },
+        { id: "medium", label: "صاروخ" }
+      ];
+      shawarmaSizes.forEach(s => sizeMap[s.id] = s.label);
+
+      const breadMap = {}; breadOptions.forEach(b => breadMap[b.id] = b.label);
+      const extrasMap = {}; extrasOptions.forEach(e => extrasMap[e.id] = e.label);
+      const removalMap = {}; removalOptions.forEach(r => removalMap[r.id] = r.label);
+      const drinkMap = {};
+      comboDrinks.forEach(d => drinkMap[d.id] = d.label);
+      kidsJuices.forEach(j => drinkMap[j.id] = j.label);
+
+      const lines = [];
+      cart.forEach((item, idx) => {
+        const parts = [];
+        parts.push((idx + 1) + "- " + item.name);
+        if (item.sizeId && sizeMap[item.sizeId]) parts.push(sizeMap[item.sizeId]);
+        if (item.breadId && breadMap[item.breadId]) parts.push(breadMap[item.breadId]);
+        (item.extras || []).forEach(eId => {
+          if (extrasMap[eId]) parts.push("إضافة: " + extrasMap[eId]);
+        });
+        (item.removals || []).forEach(rId => {
+          if (removalMap[rId]) parts.push(removalMap[rId]);
+        });
+        if (item.drinkId && drinkMap[item.drinkId]) {
+          const prefix = item.kind === "kids" ? "عصير: " : "مشروب: ";
+          parts.push(prefix + drinkMap[item.drinkId]);
+        }
+
+        const lineTotal = (item.unitPrice * item.qty);
+        total += item.unitPrice * item.qty;
+        lines.push(parts.join(" | ") + " | عدد: " + item.qty + " | الإجمالي: " + formatPrice(lineTotal));
+      });
+
+      const currentTime = new Date().toLocaleString('ar-SA');
+      const orderTypeLabel = checkoutData.orderType === "pickup" ? "استلام من المطعم" : "توصيل للعنوان";
+
+      let paymentLabel = "نقداً";
+      let paymentStatus = "غير مدفوع";
+      if (checkoutData.paymentMethod === "card") {
+        paymentLabel = "بطاقة";
+      } else if (checkoutData.paymentMethod === "online") {
+        paymentLabel = "الدفع الإلكتروني";
+        paymentStatus = "قد يكون مدفوع إلكترونياً، يرجى التحقق.";
+      }
+
+      let header = "🍖 طلب جديد من " + appSettings.restaurantName + "\n";
+      header += "🏪 الفرع: " + branch.name + "\n";
+      header += "⏰ الوقت: " + currentTime + "\n";
+      header += "📦 نوع الطلب: " + orderTypeLabel + "\n\n";
+
+      let customerInfo =
+        "👤 الاسم: " + checkoutData.customerName + "\n" +
+        "📱 الجوال: " + checkoutData.customerPhone + "\n";
+
+      if (checkoutData.orderType === "delivery" && checkoutData.deliveryLat && checkoutData.deliveryLng) {
+        const locationUrl = "https://www.google.com/maps?q=" + checkoutData.deliveryLat + "," + checkoutData.deliveryLng;
+        customerInfo += "📍 موقع التوصيل على الخريطة:\n" + locationUrl + "\n";
+      }
+
+      const itemsBlock =
+        "📋 تفاصيل الطلب:\n" +
+        lines.join("\n") + "\n\n";
+
+      const totalsBlock =
+        "💰 الإجمالي التقريبي: " + formatPrice(total) + "\n" +
+        "💳 طريقة الدفع: " + paymentLabel + "\n" +
+        "📌 حالة الدفع: " + paymentStatus + "\n";
+
+      const message = header + customerInfo + "\n" + itemsBlock + totalsBlock + "شكراً لثقتكم بنا! 🧡";
+      return { branch, message };
+    }
+
+    // ربط أزرار و أحداث شاشة الـ Checkout
+    if (checkoutOverlayEl && checkoutNextBtn && checkoutCloseBtn) {
+      if (checkoutBackBtn) {
+        checkoutBackBtn.addEventListener("click", () => {
+          if (checkoutStepIndex > 0) {
+            setCheckoutStep(checkoutStepIndex - 1);
+          }
+        });
+      }
+
+      checkoutCloseBtn.addEventListener("click", () => {
+        closeCheckoutWizard();
+      });
+
+      checkoutOverlayEl.addEventListener("click", (e) => {
+        if (e.target === checkoutOverlayEl) {
+          closeCheckoutWizard();
+        }
+      });
+
+      if (checkoutBranchSelectEl) {
+        checkoutBranchSelectEl.addEventListener("change", (e) => {
+          currentBranchId = e.target.value;
+          checkoutData.branchId = currentBranchId;
+        });
+      }
+
+      const orderTypeInputs = document.querySelectorAll("input[name='order-type']");
+      orderTypeInputs.forEach(inp => {
+        inp.addEventListener("change", () => {
+          checkoutData.orderType = inp.value;
+          setCheckoutStep(checkoutStepIndex); // لإعادة إظهار/إخفاء الخريطة
+        });
+      });
+
+      const paymentInputs = document.querySelectorAll("input[name='payment-method']");
+      paymentInputs.forEach(inp => {
+        inp.addEventListener("change", () => {
+          checkoutData.paymentMethod = inp.value;
+        });
+      });
+
+      if (useCurrentLocationBtn) {
+        useCurrentLocationBtn.addEventListener("click", () => {
+          useCurrentLocation();
+        });
+      }
+
+      checkoutNextBtn.addEventListener("click", () => {
+        
+        
+        if (!validateCurrentStep()) return;
+
+        // في آخر خطوة نعرض نافذة تأكيد بدلاً من نافذة المتصفح
+        if (checkoutStepIndex === checkoutStepEls.length - 1) {
+          const overlay = document.getElementById("send-confirm-overlay");
+          if (overlay) {
+            overlay.classList.add("active");
+            overlay.setAttribute("aria-hidden", "false");
+          } else {
+            // في حال عدم وجود النافذة نستخدم الإرسال المباشر كاحتياط
+            const result = buildWhatsappMessageFromCheckout();
+            const phone = result.branch.whatsappNumber.replace(/^00+/, "");
+            const url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(result.message);
+            window.location.href = url;
+            cart = [];
+            renderCart();
+            showToast("تم إرسال الطلب بنجاح ✅");
+            closeCheckoutWizard();
+          }
+          return;
+        }
+
+        // الانتقال للخطوة التالية
+        if (checkoutStepIndex === 1 && checkoutData.orderType === "delivery" && !deliveryMap) {
+          // تهيئة الخريطة أول مرة قبل استعراض الخطوة
+          initDeliveryMap();
+        }
+        setCheckoutStep(checkoutStepIndex + 1);
+
+      });
+      // منطق نافذة تأكيد إرسال الطلب
+      if (sendConfirmCancelBtn && sendConfirmOverlay) {
+        sendConfirmCancelBtn.addEventListener("click", () => {
+          sendConfirmOverlay.classList.remove("active");
+          sendConfirmOverlay.setAttribute("aria-hidden", "true");
+        });
+      }
+
+      if (sendConfirmYesBtn && sendConfirmOverlay) {
+        sendConfirmYesBtn.addEventListener("click", () => {
+          const result = buildWhatsappMessageFromCheckout();
+          const phone = result.branch.whatsappNumber.replace(/^00+/, "");
+          const url = "https://wa.me/" + phone + "?text=" + encodeURIComponent(result.message);
+
+          // استخدام الانتقال في نفس النافذة لتفادي حظر النوافذ المنبثقة
+          window.location.href = url;
+
+          // تفريغ السلة وإغلاق شاشة الإتمام
+          cart = [];
+          renderCart();
+          showToast("تم إرسال الطلب بنجاح ✅");
+          closeCheckoutWizard();
+
+          sendConfirmOverlay.classList.remove("active");
+          sendConfirmOverlay.setAttribute("aria-hidden", "true");
+        });
+      }
+
+    }
+    function init() {
+      applyRestaurantSettings();
+      initThemeSwitcher();
+      initThemePanelToggle();
+      renderTabs();
+      renderItemsForCategory("grills");
+      renderCart();
+      
+      setTimeout(() => {
+        showToast('مرحباً بكم في المشاوي الذهبية! 🍖');
+      }, 1000);
+    }
+
+    init();
+  </script>
+
+  <!-- نافذة تأكيد إرسال الطلب -->
+  <div class="send-confirm-overlay" id="send-confirm-overlay" aria-hidden="true">
+    <div class="send-confirm-dialog" role="dialog" aria-modal="true">
+      <p class="send-confirm-title">هل أنت متأكد من إرسال الطلب؟</p>
+      <p class="send-confirm-text">بعد الإرسال سيتم فتح واتساب وتفريغ السلة.</p>
+      <div class="send-confirm-actions">
+        <button type="button" class="btn btn-secondary" id="send-confirm-cancel">إلغاء</button>
+        <button type="button" class="btn btn-primary" id="send-confirm-yes">إرسال الطلب</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
